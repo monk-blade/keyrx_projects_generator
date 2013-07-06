@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "Making project at Documents directory..."
 k_rls=`uname --kernel-release`
 arch=`uname -m`
@@ -7,17 +8,18 @@ os_name=`lsb_release -s -i`
 dir_name="$os_name"_"$os_ver"_"$arch"
 
 export HOSTNAME
-
+src_dir="$HOME/Documents/keryx/$dir_name"
 echo "Making Directories..."
-mkdir -p $HOME/Documents/keryx/$dir_name
-mkdir -p $HOME/Documents/keryx/$dir_name/sources
-mkdir -p $HOME/Documents/keryx/$dir_name/lists
-mkdir -p $HOME/Documents/keryx/$dir_name/packages
+mkdir -p $src_dir
+mkdir -p $src_dir/sources
+mkdir -p $src_dir/lists
+mkdir -p $src_dir/packages
+
 echo "Copying Software source list..."
-cp /etc/apt/sources.list $HOME/Documents/keryx/$dir_name/sources
-cp -r /etc/apt/sources.list.d $HOME/Documents/keryx/$dir_name/sources
-cp /var/lib/dpkg/status $HOME/Documents/keryx/$dir_name/lists
-cd $HOME/Documents/keryx/$dir_name
+cp /etc/apt/sources.list $src_dir/sources
+cp -r /etc/apt/sources.list.d $src_dir/sources
+cp /var/lib/dpkg/status $src_dir/lists
+cd $src_dir
 
 echo "Cleaning up old configurations..."
 rm -f debian.conf
