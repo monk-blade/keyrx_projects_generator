@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Making project at Documents directory..."
 k_rls=`uname --kernel-release`
 arch=`uname -m`
