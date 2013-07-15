@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export HOSTNAME
+
 echo "Making project at Documents directory..."
 k_rls=`uname --kernel-release`
 arch=`uname -m`
@@ -7,7 +9,6 @@ os_ver=`lsb_release -s -r`
 os_name=`lsb_release -s -i`
 dir_name="$os_name"_"$os_ver"_"$arch"
 
-export HOSTNAME
 src_dir="$HOME/Documents/keryx/$dir_name"
 echo "Making Directories..."
 mkdir -p $src_dir
