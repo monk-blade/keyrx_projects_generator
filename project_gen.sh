@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export HOSTNAME
-
 echo "Making project at Documents directory..."
 k_rls=`uname --kernel-release`
 arch=`uname -m`
@@ -22,7 +21,9 @@ cp -r /etc/apt/sources.list.d $src_dir/sources
 cp /var/lib/dpkg/status $src_dir/lists
 cd $src_dir
 
-echo "Cleaning up old configurations..."
+rm -f $src_dir/sources/sources.list.d/*.save
+
+echo "Cleaning up old configurations and backup files..."
 rm -f debian.conf
 rm -f "$dir_name".keryx
 cp_name=`echo $HOSTNAME`
@@ -39,3 +40,5 @@ touch "$dir_name".keryx
 echo "$dir_name" >> "$dir_name".keryx
 echo "Debian" >> "$dir_name".keryx
 echo "All done!!!..Copy generated directory to your keryx projects directory."
+
+
