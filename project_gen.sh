@@ -4,6 +4,17 @@ export HOSTNAME
 echo "Making project at Documents directory..."
 k_rls=`uname --kernel-release`
 arch=`uname -m`
+
+if [ "$arch" = "x86_64" ]; then
+	{	
+		arch="64bit"
+	}
+else
+	{
+		arch="32bit"
+	}
+fi
+
 os_ver=`lsb_release -s -r`
 os_name=`lsb_release -s -i`
 dir_name="$os_name"_"$os_ver"_"$arch"
